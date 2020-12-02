@@ -124,15 +124,15 @@ void temperature(const int flag1)
     {
         if(ADC_value>500 && ADC_value<1000)
         {
-            OCR0A=26;
+            OCR0A=26; //10% duty cycle is created
         }
         else if (ADC_value>1000)
         {
-            OCR0A=255;
+            OCR0A=255; //0% duty cycle is created
         }
         else if (ADC_value <=500)
         {
-            OCR0A=value;
+            OCR0A=value; //previous duty cycle is maintained
         }
 
     }
