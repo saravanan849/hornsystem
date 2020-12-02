@@ -33,7 +33,7 @@ int main(void)
     SET_BIT(PORTD,PD2);
 
     EICRA |= (1 << ISC11);
-    EICRA |= (1 << ISC10);
+    EICRA |= (1 << ISC10); //setting to rising edge
     EICRA |= (1 << ISC01);
     EICRA |= (1 << ISC00);
     EIMSK |= (1 << INT1);
@@ -54,7 +54,7 @@ int main(void)
                 TCCR0A |= (1<<COM0A1);
                 TCCR0A &= ~(1<<COM0A0);
                 TCNT0 = 0x00;
-                value = 77;
+                value = 77; //To generate 30% duty cycle
                 OCR0A=value;
                 TCCR0B |= ((1<<CS00) | (1<<CS02)); //Prescaler setting 1024
                 TCCR0B &= ~(1<<CS01);
@@ -92,13 +92,13 @@ else if (PIN_READ &= ~(1<<PD3)) //ENGINE IS OFF
     {
     if(Flag_bit.Flag_ISR1==1 && Flag_bit.Flag_ISR0==0)  //GPIO +
     {
-        value+=12.5;
+        value+=12.5;    //increasing duty cycle 5% for every push
         OCR0A=value;
         Flag_bit.Flag_ISR1=0;
     }
     if(Flag_bit.Flag_ISR1==0 && Flag_bit.Flag_ISR0==1)  //GPIO -
     {
-        value-=12.5;
+        value-=12.5;    //decreasing duty cycle 5% for every push
         OCR0A=value;
         Flag_bit.Flag_ISR0=0;
     }
