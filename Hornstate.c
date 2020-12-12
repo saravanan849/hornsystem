@@ -1,5 +1,5 @@
 #include "Hornstate.h"
-extern unsigned int default_dutycycle;
+unsigned int default_dutycycle = 77;
 void horn()
 {
     uint16_t PIN_READ = PIND; //
