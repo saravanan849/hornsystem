@@ -6,11 +6,7 @@ void configuration()
     CLR_BIT(DDRD,PD7);  //HORN
     SET_BIT(PORTD,PD7);
 
-    CLR_BIT(DDRD,PD3);  //interrupt 1 - GPIO+
-    SET_BIT(PORTD,PD3);
-    CLR_BIT(DDRD,PD2);  //interrupt 0 - GPIO-
-    SET_BIT(PORTD,PD2);
-
+    
     SET_BIT(PORTD,PD6);
 
     SET_BIT(DDRD,PD4);
