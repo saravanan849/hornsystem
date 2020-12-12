@@ -10,6 +10,5 @@
 
 extern void configuration();
 extern void horn();
-unsigned int default_dutycycle = 77;
 
 #endif
